@@ -1,0 +1,1 @@
+export function SectionHeader({ number, title, children }: { number: number; title: string; children?: React.ReactNode }) { return <div className="section-head"><b>{String(number).padStart(2, "0")} // {title.toUpperCase()}</b>{children}</div>; }

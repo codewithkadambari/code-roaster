@@ -1,0 +1,6 @@
+"use client";
+import { useState } from "react";
+import { LANGUAGES } from "@/config/app.config";
+import { SectionHeader } from "./SectionHeader";
+import type { LanguageId } from "@/types/roast";
+export function FixedCode({ sectionNumber, language, code, onApply }: { sectionNumber: number; language: LanguageId; code: string; onApply: (x: string) => void }) { const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle"); const copy = async () => { try { await navigator.clipboard.writeText(code); setCopyStatus("copied"); } catch { setCopyStatus("failed"); } setTimeout(() => setCopyStatus("idle"), 2000); }; const extension = LANGUAGES.find(x => x.id === language)?.extension ?? "txt"; const label = copyStatus === "copied" ? "✓ COPIED TO CLIPBOARD" : copyStatus === "failed" ? "✕ COPY BLOCKED, SELECT MANUALLY" : "📋 COPY FIXED CODE"; return <section><SectionHeader number={sectionNumber} title="Fix"><b className="green">CORRECTED CODE</b></SectionHeader><div className="fixed"><div><span>solution.{extension}</span><b>READY TO APPLY</b></div><pre><code>{code}</code></pre></div><div className="fix-actions"><button onClick={copy}>{label}</button><button onClick={() => onApply(code)}>APPLY TO EDITOR ↵</button></div></section>; }

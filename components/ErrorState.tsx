@@ -1,0 +1,1 @@
+export function ErrorState({ error, onRetry }: { error?: string; onRetry: () => void }) { return <div className="state"><div className="state-icon error">!</div><h2 className="accent">Analysis Failed</h2><p>{error || "An unknown error occurred during code evaluation."}</p><button className="retry" onClick={onRetry}>RETRY ANALYSIS ↵</button></div>; }

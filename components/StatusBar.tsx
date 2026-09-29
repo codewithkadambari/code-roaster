@@ -1,0 +1,2 @@
+import { AI, APP } from "@/config/app.config";
+export function StatusBar({ isRoasting }: { isRoasting: boolean }) { return <footer className="status"><div><span>STATUS: <b className={isRoasting ? "amber" : "green"}>{isRoasting ? "PROCESSING..." : `ONLINE (${AI.modelLabel.toUpperCase()})`}</b></span><span className="engine"> | ENGINE: GOOGLE GEMINI</span><span>{APP.name} {APP.version} // LIVE</span></div><small>Made at GDG Nashik Pre-DevFest Workshop</small></footer>; }

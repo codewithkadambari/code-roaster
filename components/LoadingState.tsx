@@ -1,0 +1,1 @@
+export function LoadingState() { return <div className="state"><div className="state-icon spin">/</div><h2>Analyzing Code</h2><p>Evaluating computational complexity and architectural purity...</p></div>; }

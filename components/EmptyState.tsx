@@ -1,0 +1,1 @@
+export function EmptyState() { return <div className="state"><div className="state-icon">{'{}'}</div><h2>Awaiting Code Submission</h2><p>Paste your code on the left, then click “ROAST MY CODE” or press Ctrl+Enter (⌘+Enter on Mac).</p></div>; }
